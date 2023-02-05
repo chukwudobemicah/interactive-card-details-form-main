@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+
+<body>
+  <header>
+    <div class="card-container">
+      <img class="card-back" src="./images/bg-card-back.png" alt="card-back">
+      <div class="card-details-container">
+        <div class="card-details"> <img class="card-front" src="./images/bg-card-front.png" alt="card-front">
+          <div class="card-input">
+            <p>0000 0000 0000 0000</p>
+            <div class="card-name"><span>Jane Appleseed</span><span> 00/00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="form-container">
+      <form>
+        <label for="name">CARDHOLDER NAME</label>
+        <input type="text" placeholder=" e.g. Jane Appleseed">
+        <p class="error-message">Name cannot be empty</p>
+        <label for="card">CARD NUMBER</label>
+        <input type="text" placeholder="e.g. 1234 5678 9123 0000">
+        <p class="error-message">Wrong format, numbers only. </p>
+        <div class="form-mini">
+          <div class="exp-date">
+            <div class="date-labels">
+              <label for="date">Exp. Date (MM/YY)</label>
+              <label for="cvc">CVC</label>
+            </div>
+            <div class="input-date">
+              <div>
+                <input type="text" placeholder="MM">
+              </div>
+              <div>
+                <input type="text" placeholder="YY">
+              </div>
+              <div class="form-cvc">
+                <div>
+                  <input type="text" placeholder="e.g. 123">
+                </div>
+              </div>
+            </div>
+            <div class="date-error-message">
+              <p class="error-message">Can't be blank</p>
+              <p class="error-message">Can't be blank</p>
+            </div>
+          </div>
+        </div>
+        <button> Confirm</button>
+      </form>
+      <!-- Completed state start -->
+    </div>
+    <!-- style="display: none;" -->
+    <div style="display: none" class="complete-state">
+      <div class="thank-you-page">
+        <img src="./images/icon-complete.svg" alt="">
+        <p class="thank-you">
+          Thank you!</p>
+        <p>
+          We've added your card details</p>
+        <button>
+          Continue</button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
