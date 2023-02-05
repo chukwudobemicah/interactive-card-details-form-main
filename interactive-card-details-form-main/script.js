@@ -2,50 +2,20 @@ const errorMessages = document.querySelectorAll('.error-message');
 const inputs = document.querySelectorAll('input');
 const form = document.querySelector('form');
 
+// NODELIST
 console.log(errorMessages);
-
-errorMessages.forEach(er => er.classList.add('opacity'));
+// NODELIST
 console.log(inputs);
-// const checkInputs = function () {
-//   inputs.forEach(inp => {
-//     console.log(inp);
 
-//     if (inp.textContent === '') {
-//       //   console.log(inp.querySelector('.error-message'));
-//       if (inp.nextElementSibling.classList.contains('error-message')) {
-//         console.log(inp.nextElementSibling);
-//         inp.nextElementSibling.classList.remove('opacity');
-//       }
-//     }
-//   });
-// };
+// REDUCED ALL THE ERROR MESSAGES OPACITY TO 0;
+errorMessages.forEach(er => er.classList.add('zero-opacity'));
 
-// form.addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   checkInputs();
-// });
+// TRYING TO LOOP THROUGH THE INPUTS, FIND THE CLOSEST ERROR MESSAGE TO EACH INPUT WITH QUERYSELECTOR THEN REMOVE THE '.zero-opacity' class ON THAT CLOSEST ERR MESSAGE BUT  MY QUERYSELECTOR KEEPS RETURNING NULL EVEN THOUGH I HAVE THE ELEMENTS IN MY DOM.
 
-// PROBLEM :
+// P.S : YOU CAN CHECK MY HTML TO SEE IF I'M SELECTING THE ERR MESSAGE RIGHT, BUT I'M SURE I AM.
 inputs.forEach(inp => {
+  // LOGS NULL
   console.log(inp.querySelector('.error-message'));
+  // CANNOT USE CLASSLIST ON THIS BECAUSE QUERYSELECTOR IS NULL.
   inp.querySelector('.error-message').classList.remove('opacity');
-});
-
-// CHATGPT AND STACKOVERFLOW SOLUTION (WHICH ARE NOT WORKING):
-
-window.addEventListener('load', function () {
-  inputs.forEach(inp => {
-    console.log(inp.querySelector('.error-message'));
-    window.frames[0].inp
-      .querySelector('.error-message')
-      .classList.remove('opacity');
-  });
-});
-// window.onload()
-
-document.addEventListener('DOMContentLoaded', function () {
-  inputs.forEach(inp => {
-    console.log(inp.querySelector('.error-message'));
-    inp.querySelector('.error-message').classList.remove('opacity');
-  });
 });
