@@ -2,20 +2,69 @@ const errorMessages = document.querySelectorAll('.error-message');
 const inputs = document.querySelectorAll('input');
 const form = document.querySelector('form');
 
-// NODELIST
-console.log(errorMessages);
-// NODELIST
-console.log(inputs);
+const cardholderName = form.querySelector('#cardholder-name');
+const cardNumber = form.querySelector('#card-number');
+const month = form.querySelector('#month');
+const year = form.querySelector('#year');
+const cvv = form.querySelector('#cvv');
 
-// REDUCED ALL THE ERROR MESSAGES OPACITY TO 0;
-errorMessages.forEach(er => er.classList.add('zero-opacity'));
 
-// TRYING TO LOOP THROUGH THE INPUTS, FIND THE CLOSEST ERROR MESSAGE TO EACH INPUT WITH QUERYSELECTOR THEN REMOVE THE '.zero-opacity' class ON THAT CLOSEST ERR MESSAGE BUT  MY QUERYSELECTOR KEEPS RETURNING NULL EVEN THOUGH I HAVE THE ELEMENTS IN MY DOM.
+const cardholderNameError = cardholderName.nextElementSibling;
+const cardNumberError = cardNumber.nextElementSibling;
+const monthError = month.nextElementSibling;
+const yearError = year.nextElementSibling;
+const cvvError = cvv.nextElementSibling;
 
-// P.S : YOU CAN CHECK MY HTML TO SEE IF I'M SELECTING THE ERR MESSAGE RIGHT, BUT I'M SURE I AM.
-inputs.forEach(inp => {
-  // LOGS NULL
-  console.log(inp.querySelector('.error-message'));
-  // CANNOT USE CLASSLIST ON THIS BECAUSE QUERYSELECTOR IS NULL.
-  inp.querySelector('.error-message').classList.remove('opacity');
+
+
+
+errorMessages.forEach((error) => {
+  error.style.display = 'none';
+});
+
+
+// add event listener to form
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // cardholder name validation
+
+  if (cardholderName.value === '') {
+    cardholderNameError.style.display = 'block';
+  } else {
+    cardholderNameError.style.display = 'none';
+  }
+
+  // card number validation
+
+  if (cardNumber.value === '') {
+    cardNumberError.style.display = 'block';
+  } else {
+    cardNumberError.style.display = 'none';
+  }
+
+  // month validation
+
+  if (month.value === '') {
+    monthError.style.display = 'block';
+  } else {
+    monthError.style.display = 'none';
+  }
+
+  // year validation
+
+  if (year.value === '') {
+    yearError.style.display = 'block';
+  } else {
+    yearError.style.display = 'none';
+  }
+
+  // cvv validation
+
+  if (cvv.value === '') {
+    cvvError.style.display = 'block';
+  } else {
+    cvvError.style.display = 'none';
+  }
 });
